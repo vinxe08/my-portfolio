@@ -1,0 +1,245 @@
+.Projects {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.projects__container {
+  width: 100%;
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.projects__title {
+  margin: 0 2rem;
+  padding: 2.3rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  animation: sample 2s ease-in-out;
+  flex: 1;
+
+  /* position: relative; */
+  overflow: hidden;
+  position: sticky;
+  top: 100px;
+  left: 0;
+}
+
+.featured__project {
+  font-family: "Oswald", sans-serif;
+  font-size: 25px;
+}
+
+.title__section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: 100%;
+  width: 100vw;
+  flex: 1;
+}
+
+.title__animation {
+  font-family: "Oswald", sans-serif;
+  font-size: 47px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.title__animation::before,
+.title__animation::after {
+  content: "Project";
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  right: 0;
+  color: transparent;
+  -webkit-text-stroke: 1px gray;
+  text-transform: uppercase;
+
+  /* overflow: hidden; */
+}
+
+.title__animation::before {
+  top: -40px;
+}
+
+.title__animation::after {
+  top: 40px;
+}
+
+.project__contents {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.project__row {
+  margin: 10px 0;
+  position: relative;
+}
+
+.project__row:nth-child(even) {
+  align-self: flex-end;
+}
+
+.project__photo {
+  height: 500px;
+  width: 100%;
+  object-fit: contain;
+  transition: 0.3s ease-out;
+}
+
+.image__overlay {
+  opacity: 0;
+  height: 51.5%;
+  width: 100%;
+  position: absolute;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease-out;
+  color: black;
+}
+
+.image__overlay:hover {
+  opacity: 1;
+  color: black;
+}
+
+.image__title {
+  background-color: crimson;
+  padding: 8px 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  transition: 0.15s ease-out;
+  text-decoration: none;
+}
+
+.image__title:hover {
+  background-color: rgb(226, 53, 88);
+}
+
+.image__title:active {
+  transform: scale(0.9);
+}
+
+.text_icon {
+  font-size: 20px;
+  letter-spacing: 2px;
+  padding-right: 10px;
+  font-family: "Roboto", sans-serif;
+  color: white;
+}
+
+.projects__icon {
+  color: white;
+}
+
+.image__description {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  margin-top: 15px;
+  visibility: hidden;
+  color: white;
+}
+
+.background__text {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+  left: 0;
+  top: 0;
+}
+
+.background__text h1 {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 100px;
+  transform: scale(1, 5);
+  text-transform: uppercase;
+  color: rgb(240, 235, 235);
+  opacity: 0;
+  align-items: center;
+}
+
+@keyframes sample {
+  0% {
+    transform: translateX(-50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .featured__project {
+    font-size: 50px;
+  }
+
+  .title__animation {
+    font-size: 60px;
+  }
+
+  .title__animation::before {
+    top: -50px;
+  }
+
+  .title__animation::after {
+    top: 50px;
+  }
+
+  .project__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+
+  .project__row:nth-child(even) {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .project__contents {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project__photo {
+    height: 450px;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .image__overlay {
+    height: 100%;
+    border-radius: 30px;
+    top: 0;
+    color: white;
+  }
+
+  .image__overlay:hover {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .image__description {
+    visibility: visible;
+  }
+}

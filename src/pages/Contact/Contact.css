@@ -1,0 +1,122 @@
+.Contact {
+  width: 100%;
+  padding-top: 4.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__container {
+  padding: 0 1.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact__title {
+  align-self: center;
+  font-family: "Oswald", sans-serif;
+  color: rgb(37, 37, 37);
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.divider {
+  height: 4px;
+  width: 50px;
+  background-color: rgb(67, 138, 245);
+  align-self: center;
+  margin: 1rem 0 2rem 0;
+}
+
+.contact__details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contact__row {
+  display: flex;
+  color: rgb(67, 138, 245);
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.contact__icon {
+  transform: scale(1.5, 1.5);
+  margin-right: 18px;
+}
+
+.contact__info h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: rgb(32, 32, 32);
+}
+
+.contact__info h2 {
+  color: gray;
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.social__accounts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2.5rem 0 0 0;
+}
+
+.social__title {
+  display: flex;
+  font-family: "Oswald", sans-serif;
+  color: rgb(37, 37, 37);
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.social__media {
+  display: flex;
+  padding: 3rem 1.7rem;
+}
+
+.social__row {
+  transition: 0.3s ease-in-out;
+}
+
+.blue {
+  color: rgb(29, 104, 165);
+}
+
+.black {
+  color: rgb(49, 48, 48);
+}
+
+.social__icon {
+  transform: scale(2, 2);
+  cursor: pointer;
+  margin: 0 1rem;
+}
+
+.social__row:hover {
+  transform: scale(1.2);
+}
+
+@media only screen and (min-width: 800px) {
+  .Contact {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 5rem;
+  }
+
+  .contact__container {
+    flex: 1;
+  }
+
+  .social__accounts {
+    flex: 1;
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,26 @@
+.ContactIcon {
+  position: fixed;
+  z-index: 20;
+  bottom: 30px;
+  right: 15px;
+}
+
+.icon__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon__row {
+  color: #fff;
+  background: transparent;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s ease-in;
+  margin: 1px 0;
+  cursor: pointer;
+}
+
+.scrolled {
+  color: rgb(26, 25, 25);
+}

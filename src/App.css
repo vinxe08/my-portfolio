@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+.App {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(255, 254, 254);
+}
+
+.count__down {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #282c34;
+  animation: fade-out 3.3s ease-in-out;
+}
+
+.App-logo {
+  transform: scale(0.3);
+  animation: App-logo-spin 3s linear;
+  justify-self: center;
+  align-self: center;
+}
+
+.welcome__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  animation: fade 3s ease-in-out;
+}
+
+.welcome__text h5 {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  letter-spacing: 6px;
+}
+
+.welcome__text h1 {
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  font-size: 32px;
+  letter-spacing: 5px;
+
+  text-transform: uppercase;
+}
+
+.pages {
+  z-index: 20;
+  width: 100%;
+}
+
+@keyframes fade-out {
+  0% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(-1000px);
+  }
+  100% {
+    transform: translateY(-1000px);
+  }
+  110%{
+    transform: translateY(-1000px);
+  }
+}
+
+/* Logo Rotation */
+@keyframes App-logo-spin {
+  0% {
+    transform: rotate(0deg) scale(0);
+  }
+  5% {
+    transform: rotate(0deg) scale(0);
+  }
+  20% {
+    transform: rotate(340deg) scale(0.2);
+  }
+  45% {
+    transform: rotate(620deg) scale(0.1);
+  }
+
+  100% {
+    transform: rotate(1100deg) scale(0.1);
+  }
+}
+
+/* FADE IN */
+@keyframes fade {
+  0% {
+    transform: translateY(130px);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}

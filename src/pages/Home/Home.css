@@ -1,0 +1,178 @@
+.Home {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: url("/src/images/bg-wallpaper.jpg") no-repeat center;
+  background-size: cover;
+  animation: intro 0.2s ease-in;
+  overflow: hidden;
+  position: relative;
+}
+
+.home__container {
+  color: #fff;
+  padding: 1rem 1rem 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.home__container h5 {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 25px;
+  letter-spacing: 2px;
+  color: rgb(223, 219, 219);
+  animation: name-title 1s ease-in-out;
+}
+
+.my__name {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 55px;
+  /* color: rgb(250, 49, 89); */
+  color: transparent;
+  margin-left: 10px;
+  position: relative;
+}
+
+.my__name::before {
+  content: "Vince";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  color: rgb(250, 49, 89);
+  border-right: 2px solid rgb(250, 49, 89);
+  overflow: hidden;
+  animation: typewriter 5s cubic-bezier(0.42, 0, 0.05, 0.41) infinite;
+}
+
+.home__container h1 {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 2px;
+  font-size: 40px;
+  color: rgb(240, 240, 240);
+  animation: description 1.2s ease-in-out;
+}
+
+.home__container h3 {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 4px;
+  font-size: 23px;
+  color: rgb(240, 240, 240);
+  animation: description 1.2s ease-in-out;
+}
+
+.reactJs {
+  color: rgb(132, 204, 233);
+  font-size: 40px;
+}
+
+.home__button {
+  width: 240px;
+  margin-top: 20px;
+  display: flex;
+}
+
+.about__button,
+.projects__button {
+  font-size: 15px;
+  letter-spacing: 1px;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  transition: 0.3s ease-in-out;
+}
+
+.projects__button {
+  color: #fff;
+  text-decoration: none;
+  background-color: rgb(74, 115, 131);
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+}
+
+.about__button {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.projects__button:hover {
+  transform: scale(1.05);
+}
+
+.about__button:hover {
+  background-color: rgb(250, 49, 89);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.projects__button:active,
+.about__button:active {
+  transform: scale(0.9);
+}
+
+@keyframes intro {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes name-title {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes typewriter {
+  40% {
+    width: 105%;
+  }
+  80% {
+    width: 105%;
+  }
+}
+
+@keyframes description {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .home__container {
+    text-align: center;
+    align-items: center;
+  }
+
+  .my__name,
+  .home__container h5 {
+    font-size: 80px;
+  }
+
+  .home__container h1 {
+    font-size: 50px;
+  }
+}
