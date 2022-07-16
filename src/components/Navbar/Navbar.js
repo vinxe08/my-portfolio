@@ -2,80 +2,77 @@ import React, { useState, useEffect } from 'react'
 import "./Navbar.css"
 import { PersonOutlineOutlined } from '@mui/icons-material';
 import { HashLink } from 'react-router-hash-link'
-import { NavbarList } from './NavbarData'
+import { NavbarList } from './NavbarList'
+import { motion } from 'framer-motion'
+import { sidebar, navButton, navbar, variants } from './NavbarAnimation'
+import { navData } from './NavbarData'
+import { useMediaQuery } from '@mui/material';
+
 
 function Navbar() {
   const [nav, setNav] = useState(false)
-  const[home, setHome] = useState(true)
-  const[project, setProject] = useState(false)
-  const[about, setAbout] = useState(false)
-  const[skills, setSkills] = useState(false)
-  const[contact, setContact] = useState(false)
-  
+  const mobileView = useMediaQuery('(max-width:800px)');
 
-  const open = () => {
-    setNav(nav => !nav)
-  }
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const yPos = window.scrollY;
-
-      const HomePage = yPos > -3 && yPos < 300;
-      setHome(HomePage)
-
-      const ProjectPage = yPos > 300 && yPos < 2550;
-      setProject(ProjectPage)
-
-      const AboutPage = yPos > 2550 && yPos < 3300;
-      setAbout(AboutPage)
-      
-      const SkillsPage = yPos > 3300 && yPos < 4000;
-      setSkills(SkillsPage) 
-
-      const ContactPage = yPos > 4000 && yPos < 4500;
-      setContact(ContactPage)
-
-    }
-
-    window.addEventListener('scroll', handleScroll, false)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll, false)
-    }
-  })
+  const open = () => {setNav(nav => !nav)}
 
   return (
-    <nav className="Navbar">
+  <>{ mobileView ?
+    <motion.nav 
+      onClick={open}
+      initial='close'
+      animate={nav ? "open" : "close"}
+      exit="exit"
+      variants={sidebar}
+      className="Navbar">
+        <div className="hamburger__menu" >
+          <motion.div 
+            initial="topClose"
+            animate={nav ? 'topOpen' : 'topClose'}
+            variants={navButton}
+            className="navbar__buttonTop"></motion.div>
+          <motion.div 
+            initial="midClose"
+            animate={nav ? 'midOpen' : 'midClose'}
+            variants={navButton}
+            className="navbar__buttonMid"></motion.div>
+          <motion.div 
+            initial="botClose"
+            animate={nav ? 'botOpen' : 'botClose'}
+            variants={navButton}
+            className="navbar__buttonBottom"></motion.div>
+        </div>
+        <motion.div
+          initial="closed"
+          animate={nav ? "open" : "closed"}
+          variants={navbar}
+          className="sidebar__newButton">
+            { navData.map((data, index) => 
+              <motion.div
+                key={index}
+                variants={variants}
+                >
+                  <NavbarList location={data.location} name={data.name} Cname="nav__locationNew" onClick={open} />
+              </motion.div>
+            )}
+        </motion.div>
+    </motion.nav>
+  : <nav className='Navbar'>
       <div className="navbar__container">
         <HashLink smooth to="#Home" className="navbar__icon">
           <PersonOutlineOutlined fontSize='large'  />
           <h1>Portfolio</h1>
         </HashLink>
-        <div className="hamburger__menu" onClick={open}>
-          <button className="navbar__button"></button>
-        </div>
-        <div className={!nav ? "navbar__data" : "navbar__data show_nav"}>
-          {/* Mobile view */}
-          <div className="sidebar__button" >
-            <NavbarList click={open} location="#Home" name="Home" Cname={ home ? "nav__location active" : "nav__location"} />
-            <NavbarList click={open} location="#Projects" name="Projects" Cname={ project ? "nav__location active" : "nav__location"} />
-            <NavbarList click={open} location="#About" name="About" Cname={ about ? "nav__location active" : "nav__location"} />
-            <NavbarList click={open} location="#Skills" name="Skills" Cname={ skills ? "nav__location active" : "nav__location"} />
-            <NavbarList click={open} location="#Contact" name="Contact" Cname={ contact ? "nav__location active" : "nav__location"} />
-          </div>
-          <div className="sidebar__divition" onClick={() => setNav(false)}></div>
-        </div>
-        {/* Web View */}
         <div className="web__menu">
-          <NavbarList location="#Home" name="Home" Cname={ home ? "nav__location active" : "nav__location"} />
-          <NavbarList location="#Projects" name="Projects" Cname={ project ? "nav__location active" : "nav__location"} />
-          <NavbarList location="#About" name="About" Cname={ about ? "nav__location active" : "nav__location"} />
-          <NavbarList location="#Skills" name="Skills" Cname={ skills ? "nav__location active" : "nav__location"} />
-          <NavbarList location="#Contact" name="Contact" Cname={ contact ? "nav__location active" : "nav__location"} />
+          <NavbarList location="#Home" name="Home" Cname="nav__location" />
+          <NavbarList location="#Projects" name="Projects" Cname="nav__location" />
+          <NavbarList location="#About" name="About" Cname="nav__location"  />
+          <NavbarList location="#Skills" name="Skills" Cname="nav__location"  />
+          <NavbarList location="#Contact" name="Contact" Cname="nav__location"  />
         </div>
       </div>
     </nav>
+    }
+    </>
   )
 }
 

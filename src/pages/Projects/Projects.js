@@ -1,112 +1,121 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './Projects.css'
-import spotifyLogo from '../../images/Spotify-clone-banner.png'
-import AirbnbLogo from '../../images/Airbnb-clone-banner.png'
-import { ArrowCircleUp } from '@mui/icons-material';
+import { ArrowCircleUp, ArrowDropDownCircle } from '@mui/icons-material';
 import { motion } from 'framer-motion'
+import { SliderData } from './ProjectData'
+
+const cardVariantsLeft = {
+  offscreen: {
+    x: -180,
+  },
+  onscreen: {
+    x: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 1
+    }
+  },
+};
+
+
+const cardVariantsRight = {
+  offscreen: {
+    x: 180,
+  },
+  onscreen: {
+    x: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 1
+    }
+  },
+};
 
 function Projects() {
-  const [title, setTitle] = useState(false)
-  const [first, setFirst] = useState(false)
-  const [second, setSecond] = useState(false)
-  const [third, setThird] = useState(false)
-  const [backgroundText, setBackgroundText] = useState(false)
+  const [current, setCurrent] = useState(0);
+  const length = SliderData.length;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const yPos = window.scrollY;
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
+  };
 
-      const titleScrolled = yPos > 300;
-      const firstScrolled = yPos > 480;
-      const secondScrolled = yPos > 1120;
-      const thirdScrolled = yPos > 1610;
-      const bgText = yPos > 300 && yPos < 1800
+  const prevSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+  };
 
-      setTitle(titleScrolled)
-      setFirst(firstScrolled)
-      setSecond(secondScrolled)
-      setThird(thirdScrolled)
-      setFourth(fourthScrolled)
-      setBackgroundText(bgText)
-    }
-
-    window.addEventListener('scroll', handleScroll, false);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll, false)
-    }
-
-  })
+  if (!Array.isArray(SliderData) || SliderData.length <= 0) {
+    return null;
+  }
 
   return (
     <div className="Projects" id="Projects">
       <div className="projects__container"> 
-        <div className="projects__title"> 
+        <motion.div
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: false, amount: 1 }}
+          className="projects__title"> 
           <motion.h3 
             className="featured__project"
-            animate={{ x: title ? 0 : -180, opacity: title ? 1 : 0 }}
-            transition={{ ease: "easeOut", duration: 1 }} 
+            variants={cardVariantsLeft}
               >Featured Projects</motion.h3>
-          <motion.div className="title__section"
-          animate={{ x: title ? 0 : 180, opacity: title ? 1 : 0 }}
-          transition={{ ease: "easeOut", duration: 1 }} >          
-            <h1 className="title__animation">Project</h1>
+          <motion.div 
+            className="title__section"
+            variants={cardVariantsRight}
+          >          
+            <motion.h1 
+              variants={cardVariantsRight}className="title__animation">Project</motion.h1>
           </motion.div>
-        </div>
+        </motion.div>
         <div className="project__contents">
-          {/* 1st */}
-          <motion.div 
-            className="project__row"
-            animate={{ x: first ? 0 : -250, scale: first ? 1 : 0, opacity: first ? 1 : 0  }}
-            transition={{ type: "spring", stiffness: 110 }} >
-            <img src={AirbnbLogo} className="project__photo" alt="logo" />
-            <div className='image__overlay'>
-              <a target='_blank' href='https://airbnb-yt-iota.vercel.app/' className='image__title'>
-                <h1 className='text_icon'>Visit Page</h1>
-                <ArrowCircleUp fontSize='large' className='projects__icon' />
-              </a>
-              <p className='image__description'>Made of ReactJS with NextJS, Tailwind CSS, Calendar Picker and Mapbox </p>
-            </div>
-          </motion.div>
-          {/* 2nd */}
-          <motion.div 
-            className="project__row"
-            animate={{ 
-              y: second ? 0 : -350,
-              x: second ? 0 : 150,  
-              scale: second ? 1 : 0, 
-              opacity: second ? 1 : 0  }}
-            transition={{ type: "spring", stiffness: 110 }} >
-              <img src={spotifyLogo} className="project__photo" alt="logo" />
-              <div className='image__overlay'>
-                <a target='_blank' href='https://spotify-clone-yt-8nrk7pdhw-vinxe08.vercel.app/' className='image__title'>
+          { SliderData.filter((data, index) => index === current).map(slides => 
+            <motion.div 
+              key={slides.id}
+              className="project__row"
+              initial={{ x: 100, y: 100, scale: 0, opacity: 0 }}
+              animate={{ x: 0, y: 0, scale: 1, opacity: 1}}
+              transition={{ type: "spring", stiffness: 110 }} 
+            >
+              <img src={slides.mainImg} className="project__photo" alt="logo" />
+              <div className='image__details'>
+                {slides.secondaryImg.map(slide => 
+                  <div 
+                    key={slide.sId}
+                    className="small__container">
+                    <img src={slide.img} className="small__Icon" alt="logo"/>
+                    <h1 className="small__text">{slide.name}</h1>
+                  </div>  
+                )}
+              </div>  
+              <div className='lower__button'>
+                <a target='_blank' href={slides.url} className='image__title'>
                   <h1 className='text_icon'>Visit Page</h1>
-                  <ArrowCircleUp fontSize='large' className='projects__icon' />
+                    <ArrowCircleUp fontSize='large' className='projects__icon' />
                 </a>
-                <p className='image__description'>Made of ReactJS with NextJS, Tailwind CSS, Spotify API, NexthAuth and Recoil</p>
               </div>
-          </motion.div>
-          {/* 3rd */}
-          <motion.div 
-            className="project__row"
-            animate={{ scale: third ? 1 : 0, opacity: third ? 1 : 0  }}
-            transition={{ type: "spring", stiffness: 110 }} >
-              <img src={spotifyLogo} className="project__photo" alt="logo" />
-              <div className='image__overlay'>
-                <a target='_blank' href='' className='image__title'>
-                  <h1 className='text_icon'>Visit Page</h1>
-                  <ArrowCircleUp fontSize='large' className='projects__icon' />
-                </a>
-                <p className='image__description'>Made of ReactJS with NextJS, Tailwind CSS, Calendar Picker and Mapbox </p>
-              </div>
-          </motion.div>
+            </motion.div>
+          )}
+          <div className="direction__buttonContainer">
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }} 
+              onClick={prevSlide}>
+              <ArrowDropDownCircle
+                fontSize='large' 
+                className='prev__button' />
+            </motion.div>
+            <motion.div 
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }} 
+              onClick={nextSlide}>
+              <ArrowDropDownCircle
+                fontSize='large' 
+                className='next__button' />
+            </motion.div>
+          </div>
         </div>
-      </div>
-      <div className="background__text">
-          <motion.h1
-            animate={{  opacity: backgroundText ? 1 : 0  }}
-            transition={{ ease: "easeOut", duration: 2.5 }}
-          >Works</motion.h1>
       </div>
     </div>
   )

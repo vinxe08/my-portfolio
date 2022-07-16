@@ -1,15 +1,22 @@
-import { NavHashLink } from 'react-router-hash-link'
-
-export const NavbarList = ({ location , name, Cname, click }) => {
-  return(
-    <NavHashLink
-      smooth
-      to={location}
-      activeClassName=""
-      className={Cname}
-      onClick={click}
-      >
-      {name}
-    </NavHashLink>
-  )
-}
+export const navData = [
+  { 
+    location: '#Home',
+    name: 'Home',
+  },
+  { 
+    location: '#Projects',
+    name: 'Projects',
+  },
+  { 
+    location: '#About',
+    name: 'About',
+  },
+  { 
+    location: '#Skills',
+    name: 'Skills',
+  },
+  { 
+    location: '#Contact',
+    name: 'Contact',
+  },
+]

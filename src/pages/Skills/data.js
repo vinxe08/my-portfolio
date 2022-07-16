@@ -60,7 +60,7 @@ export const skills = [
   },
   { id: 9,
     type: "Frontend",
-    name:"TailwindCSS",
+    name:"Tailwind CSS",
     img: tailwind
   },
   { id: 10,

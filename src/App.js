@@ -1,17 +1,12 @@
 import { useState, useEffect } from 'react'
 import './App.css';
-// import { About, Home, Projects } from './pages/index'
 import logo from './images/logo512.png'
-import {BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Navbar from './components/Navbar/Navbar';
-import ContactIcon from './components/ContactIcon/ContactIcon';
 import Layout from './pages/Layout';
-// import Contact from './pages/Contact/Contact';
-// import Skills from './pages/Skills/Skills';
 
 function App() {
   const [countDown, setCountDown] = useState(0)
   const [showPage, setShowPage] = useState(false)
+  const [scrollValue, setScrollValue] = useState(0)
 
   useEffect(() => {
     if(countDown !== 100){
@@ -21,6 +16,10 @@ function App() {
       },2800)
     }
   },[])
+
+  const handleScroll = event => {
+    setScrollValue(event.currentTarget.scrollTop)
+  };
 
   return (
     <div className="App">
@@ -35,20 +34,10 @@ function App() {
         :null  
       }
       { showPage ?
-        <>
-          <div className="pages">
-            <Router>
-              <Navbar />
-              <ContactIcon />
-              <Switch>
-                <Route path="/">
-                  <Layout />
-                </Route>
-              </Switch>           
-            </Router>
-          </div>
-        </>
-        : null
+        <div className='app__container' onScroll={handleScroll}>
+          <Layout scrollValue={scrollValue} />
+        </div> 
+      : null
       }
     </div>
   );

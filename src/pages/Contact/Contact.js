@@ -16,13 +16,13 @@ function Contact() {
             <Home className="contact__icon" />
             <div className="contact__info">
               <h1>Bolinao, Pangasinan</h1>
-              <h2>#75 Ba-reg, Arnedo</h2>
+              <h2>#80 Ba-reg, Arnedo</h2>
             </div>
           </div>
           <div className="contact__row">
             <ContactPhone className="contact__icon" />
             <div className="contact__info">
-              <h1>0966 411 3791</h1>
+              <h1>+639 266 229 134</h1>
               <h2>Monday - Sunday</h2>
             </div>
           </div>
@@ -38,6 +38,7 @@ function Contact() {
       <div className="social__accounts">
         <div className="social__title">
           <h1>My Social Network</h1>
+          <div className="divider"></div>
         </div>
         <div className="social__media">
           <motion.a 
@@ -45,18 +46,21 @@ function Contact() {
             transition=""
             href="https://www.linkedin.com/in/vince-paul-garcia-8648a9224/" target="_blank" className="social__row">
               <LinkedIn className="social__icon blue"/>
+              <h1 className='social__name'>LinkedIn</h1>
           </motion.a>
           <motion.a 
             animate=""
             transition=""
             href="https://www.facebook.com/Vinxe08/" target="_blank" className="social__row">
               <FacebookRounded className="social__icon blue"/>
+              <h1 className='social__name'>Facebook</h1>
           </motion.a>
           <motion.a 
             animate=""
             transition=""
             href="https://github.com/vinxe08" target="_blank" className="social__row">
               <GitHub className="social__icon black"/>
+              <h1 className='social__name'>GitHub</h1>
           </motion.a>
         </div>
       </div>

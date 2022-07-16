@@ -1,8 +1,10 @@
 .Contact {
   width: 100%;
+  height: 100vh;
   padding-top: 4.5rem;
   display: flex;
   flex-direction: column;
+  scroll-snap-align: start;
 }
 
 .contact__container {
@@ -49,7 +51,7 @@
 
 .contact__info h1 {
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   color: rgb(32, 32, 32);
 }
@@ -57,7 +59,7 @@
 .contact__info h2 {
   color: gray;
   font-family: "Roboto", sans-serif;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 500;
 }
 
@@ -65,32 +67,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: 2.5rem 0 0 0;
+  gap: 1rem;
 }
 
 .social__title {
   display: flex;
+  flex-direction: column;
   font-family: "Oswald", sans-serif;
   color: rgb(37, 37, 37);
-  font-size: 20px;
+  font-size: 15px;
   letter-spacing: 2px;
 }
 
 .social__media {
   display: flex;
-  padding: 3rem 1.7rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .social__row {
   transition: 0.3s ease-in-out;
-}
-
-.blue {
-  color: rgb(29, 104, 165);
-}
-
-.black {
-  color: rgb(49, 48, 48);
 }
 
 .social__icon {
@@ -99,15 +97,27 @@
   margin: 0 1rem;
 }
 
+.blue {
+  color: rgb(29, 104, 165);
+}
+
+.black {
+  color: rgb(49, 48, 48);
+  transform: scale(1.9, 1.9);
+}
+
 .social__row:hover {
   transform: scale(1.2);
+}
+
+.social__name {
+  display: none;
 }
 
 @media only screen and (min-width: 800px) {
   .Contact {
     flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
+    /* justify-content: flex-start; */
     padding-bottom: 5rem;
   }
 
@@ -115,8 +125,53 @@
     flex: 1;
   }
 
+  .contact__title {
+    font-size: 25px;
+  }
+
+  .contact__info h1 {
+    font-size: 23px;
+  }
+  
+  .contact__info h2 {
+    font-size: 20px;
+  }
+
   .social__accounts {
     flex: 1;
     margin-top: 0;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .social__media {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  .social__title{
+    font-size: 20px;
+  }
+
+  .social__row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-items: center; */
+    text-decoration: none;
+  }
+
+  .social__icon{
+    margin: 0 0;
+    margin-right: 2rem;
+    margin-left: .5rem;
+  }
+
+  .social__name{
+    display: block;
+    font-family: "Oswald", sans-serif;
+    color: rgb(37, 37, 37);
   }
 }

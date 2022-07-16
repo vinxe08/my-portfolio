@@ -8,6 +8,7 @@
   animation: intro 0.2s ease-in;
   overflow: hidden;
   position: relative;
+  scroll-snap-align: start;
 }
 
 .home__container {

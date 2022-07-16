@@ -1,25 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 .Skills {
-  height: 135vh;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column; 
   align-items: center;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
   background-color: rgb(250, 250, 250);
+  scroll-snap-align: start;
+  padding-top: 3rem;
 }
 
 .skills__title {
   font-family: 'Roboto', sans-serif;
-  font-size: 40px;
+  font-size: 28px;
   color: rgb(72, 72, 241);
 
 }
 
 .skills__buttonContainer {
-  padding: 1rem 0;
+  padding: .5rem 0;
+  margin: 0 .2rem;
+  gap: .5rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -29,9 +31,10 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  padding: .8rem 1.5rem;
-  margin: .5rem 1rem;
-  font-size: 15px;
+  padding: .4rem .8rem;
+  margin: .2rem 0;
+  /* margin: .5rem 1rem;  FOR WEB VIEW*/
+  font-size: 13px;
   font-weight: 700;
   border-radius: 20px;
   transition: .2s ease-in-out;
@@ -51,8 +54,8 @@
 
 .skills__container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: .5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .8rem;
   align-items: flex-start;
 }
 
@@ -66,20 +69,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   cursor: pointer;
-  min-height: 130px;
-  min-width: 130px;
+  min-height: 95px;
+  width: 20.5vw;
+  padding: .3rem;
 }
 
 .skills__logo {
   object-fit: contain;
-  height: 80px;
-  width: 80px;
+  height: 20px;
+  width: 20px;
 }
 
 .logo__name {
   font-family: 'Roboto', sans-serif;
-  font-size: 15px;
+  font-size: 11px;
   letter-spacing: 1px;
   font-weight: 400;
   color: gray;
@@ -87,40 +92,75 @@
 }
 
 @media only screen and (min-width: 745px){
+  .Skills {
+    padding-top: 3.5rem;
+  }
+
+  .skills__buttonContainer {
+    padding: .7rem 0;
+  }
+
+  .skills__button {
+    margin: .5rem 1rem;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
   .skills__container {
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.8rem;
   }
 
   .skills__card {
-    height: 150px;
-    width: 150px;
+    min-height: 100px;
+  }
+
+  .skills__logo {
+    height: 40px;
+    width: 40px;
+  }
+  
+  .logo__name {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: gray;
+    padding-top: 10px;
   }
 }
 
 @media only screen and (min-width: 900px) {
-  .Skills {
-    height: 145vh;
+
+  .skills__container {
+    gap: .9rem;
   }
 
   .skills__card {
-    height: 180px;
+    height: 108px;
+    
     width: 180px;
   }
+
+  .skills__logo {
+    height: 50px;
+    width: 50px;
+  }
+
 }
 
 @media only screen and (min-width: 1200px) {
-  .Skills {
-    height: 125vh;
-  }
 
   .skills__container {
     grid-template-columns: repeat(5, 1fr);
-    gap: 2rem;
   }
 
   .skills__card {
-    height: 200px;
-    width: 200px;
+    height: 150px;
   }
+
+  .skills__logo {
+    height: 60px;
+    width: 60px;
+  }
+
 }
