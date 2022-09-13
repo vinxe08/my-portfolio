@@ -1,14 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './Home.css'
 import { HashLink } from 'react-router-hash-link'
-import { useHistory } from 'react-router'
 
 function Home() {
-
-  let history = useHistory()
-   useEffect(() => {
-    history.push("/#Home")
-  })
 
   return (
     <div className="Home" id="Home">
@@ -27,4 +21,4 @@ function Home() {
   )
 }
 
-export default Home
+export default React.memo(Home)

@@ -1,17 +1,17 @@
 import React from 'react'
 import { usePresence, motion } from 'framer-motion'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
-function SkillsCard({name, image, iD, }) {
+function SkillsCard({name, image, iD, onPage}) {
   const [isPresent, safeToRemove] = usePresence()
-
+  
   const animation = {
     layout: true,
     layoutId:{iD},
-    initial:"out",
-    animate: isPresent ? "in" : "out",
+    initial: "out",
+    animate: isPresent && onPage ? "in" : "out",
     onAnimationComplete: () => !isPresent && safeToRemove(),
     transition: { duration: 0.3, ease: "easeInOut" },
-    // exit: { transition: {duration: 2}},
     variants : {
       in: { scale: 1, transition:{duration: 0.3 }},
       out: { scale: 0, transition:{duration: 0.3 }}
@@ -22,10 +22,15 @@ function SkillsCard({name, image, iD, }) {
     <motion.div 
       {...animation}
       className="skills__card">
-        <img src={image} className='skills__logo' alt="Logo"/>
+        <LazyLoadImage 
+          src={image} 
+          className='skills__logo' 
+          alt="Logo"
+          effect='blur'
+        />
         <h1 className='logo__name'>{name}</h1>
     </motion.div>
   )
 }
 
-export default SkillsCard
+export default React.memo(SkillsCard)

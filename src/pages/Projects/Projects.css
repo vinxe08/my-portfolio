@@ -3,7 +3,6 @@
   align-items: center;
   width: 100%;
   height: 100vh;
-  scroll-snap-align: start;
   background-color: rgb(250, 250, 250);
 }
 
@@ -14,6 +13,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
 }
 
 .projects__title {
@@ -28,6 +28,7 @@
 .featured__project {
   font-family: "Oswald", sans-serif;
   font-size: 19px;
+  transform: translateX(-200px);
 }
 
 .title__section {
@@ -44,6 +45,7 @@
   font-size: 30px;
   text-transform: uppercase;
   position: relative;
+  transform: translateX(200px);
 }
 
 .title__animation::before,
@@ -71,7 +73,6 @@
   flex-direction: column;
   flex-grow: 2;
   padding: .3rem 1rem;
-  position: relative;
   z-index: 2;
 }
 
@@ -88,7 +89,7 @@
 }
 
 .project__photo {
-  max-width: 500px;
+  max-width: 75vw;
   object-fit: contain;
   border-radius: 3px;
   
@@ -167,8 +168,8 @@
   position: absolute;
   display: flex;
   gap: 1rem;
-  bottom: 20px;
-  right: 60px;
+  bottom: 68px;
+  right: 100px;
 }
 
 .prev__button {
@@ -201,6 +202,16 @@
   color: rgb(240, 235, 235);
   opacity: 0;
   align-items: center;
+}
+
+.animation__fromLeft {
+  animation: fromLeft .3s ease-in-out;
+  transform: translateX(0);
+}
+
+.animation__fromRight {
+  animation: fromRight .3s ease-in-out;
+  transform: translateX(0);
 }
 
 
@@ -244,7 +255,7 @@
   }
 
   .project__photo {
-    max-width: 60%;
+    max-width: 58vw;
     border-radius: 10px;
     object-fit: contain;
   }
@@ -260,6 +271,24 @@
 
   .lower__button {
     justify-content: center;
-  }
 
+  }
+}
+
+@keyframes fromLeft {
+  0%{
+    transform: translateX(-200px);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
+
+@keyframes fromRight {
+  0%{
+    transform: translateX(200px);
+  }
+  100%{
+    transform: translateX(0);
+  }
 }

@@ -70,6 +70,6 @@ export const SliderData = [
         name:'ReactJS'
       }
     ],
-    url:'https://airbnb-yt-vinxe08.vercel.app/',
+    url:'https://airbnb-yt-git-main-vinxe08.vercel.app/',
   },
 ]

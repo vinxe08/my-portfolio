@@ -6,7 +6,7 @@ export const NavbarList = ({ location , name, Cname }) => {
     <NavHashLink
       smooth
       to={location}
-      activeClassName="active"
+      activeClassName={false}
       className={Cname}
       >
       {name}

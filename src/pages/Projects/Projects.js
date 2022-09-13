@@ -3,37 +3,9 @@ import './Projects.css'
 import { ArrowCircleUp, ArrowDropDownCircle } from '@mui/icons-material';
 import { motion } from 'framer-motion'
 import { SliderData } from './ProjectData'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-const cardVariantsLeft = {
-  offscreen: {
-    x: -180,
-  },
-  onscreen: {
-    x: 0,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 1
-    }
-  },
-};
-
-
-const cardVariantsRight = {
-  offscreen: {
-    x: 180,
-  },
-  onscreen: {
-    x: 0,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 1
-    }
-  },
-};
-
-function Projects() {
+function Projects({ scrollValue }) {
   const [current, setCurrent] = useState(0);
   const length = SliderData.length;
 
@@ -45,30 +17,20 @@ function Projects() {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
 
-  if (!Array.isArray(SliderData) || SliderData.length <= 0) {
-    return null;
-  }
-
   return (
     <div className="Projects" id="Projects">
       <div className="projects__container"> 
-        <motion.div
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: false, amount: 1 }}
+        <div
           className="projects__title"> 
-          <motion.h3 
-            className="featured__project"
-            variants={cardVariantsLeft}
-              >Featured Projects</motion.h3>
-          <motion.div 
-            className="title__section"
-            variants={cardVariantsRight}
-          >          
-            <motion.h1 
-              variants={cardVariantsRight}className="title__animation">Project</motion.h1>
-          </motion.div>
-        </motion.div>
+          <h3 className={scrollValue ? "featured__project animation__fromLeft": "featured__project"} >
+            Featured Projects
+          </h3>
+          <div className="title__section" >          
+            <h1 className={scrollValue ? "title__animation animation__fromRight": "title__animation"}>
+              Project
+            </h1>
+          </div>
+        </div>
         <div className="project__contents">
           { SliderData.filter((data, index) => index === current).map(slides => 
             <motion.div 
@@ -78,13 +40,24 @@ function Projects() {
               animate={{ x: 0, y: 0, scale: 1, opacity: 1}}
               transition={{ type: "spring", stiffness: 110 }} 
             >
-              <img src={slides.mainImg} className="project__photo" alt="logo" />
+              <LazyLoadImage 
+                src={slides.mainImg} 
+                className="project__photo" 
+                alt="logo" 
+                effect='blur'
+                placeholderSrc={slides.mainImg}
+                />
               <div className='image__details'>
                 {slides.secondaryImg.map(slide => 
                   <div 
                     key={slide.sId}
                     className="small__container">
-                    <img src={slide.img} className="small__Icon" alt="logo"/>
+                    <LazyLoadImage 
+                      src={slide.img} 
+                      className="small__Icon" 
+                      alt="logo"
+                      effect='blur'
+                      />
                     <h1 className="small__text">{slide.name}</h1>
                   </div>  
                 )}
@@ -121,4 +94,4 @@ function Projects() {
   )
 }
 
-export default Projects
+export default React.memo(Projects)

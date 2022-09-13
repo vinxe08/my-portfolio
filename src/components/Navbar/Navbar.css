@@ -1,7 +1,10 @@
 .Navbar {
-  position: fixed;
   z-index: 10;
   background-color: white;
+  box-shadow: 
+    1px 1px 5px 0px rgba(0, 0, 0, .1),
+    1px 1px 5px 0px rgba(0, 0, 0, .1);
+  position: fixed;
 }
 
 .hamburger__menu {
@@ -56,11 +59,12 @@
 .navbar__container {
   padding: 0 1rem;
   width: 100%;
-  height: 100%;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: white;
+  position: fixed;
 }
 
 .navbar__icon {
@@ -175,14 +179,24 @@
     color: rgb(31, 84, 199);
     border-bottom: 3px solid rgb(31, 84, 199);
   }
+
+  .onTrack {
+    color: rgb(160, 219, 253);
+    border-bottom: 3px solid rgb(31, 84, 199);
+  }
 }
 
 @media only screen and (min-width: 1000px) {
   .nav__location {
     width: 40%;
-    color: rgb(100, 98, 98);
+    /* color: rgb(100, 98, 98); */
     font-size: 16.5px;
     text-transform: uppercase;
     padding: 2.5px 23px;
+  }
+
+  .onTrack {
+    color: rgb(160, 219, 253);
+    border-bottom: 3px solid rgb(31, 84, 199);
   }
 }

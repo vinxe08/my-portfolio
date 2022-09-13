@@ -14,7 +14,7 @@ const container = {
   }
 }
 
-function Skills() {
+function Skills({ scrollValue }) {
   const [types, setTypes] = useState("All")
   const [items, setItems] = useState({allSkills: skills.map(item => item)})
   
@@ -23,13 +23,13 @@ function Skills() {
   const setTypeSkills = (type) => {
     setTypes(type)
 
-    // from Front-Back-Others-Frame --> All
+    // Filtering Logic from Front-Back-Others-Frame --> All
     if(type === "All"){
       const list = allSkills
       list.push(...skills.filter(data => !allSkills.some(item => item.type === data.type)))
       setItems({ ...allSkills, allSkills: list })
     } 
-    // from All --> Front-Back-Others-Frame 
+    // Filtering Logic from All --> Front-Back-Others-Frame 
     else{ 
       setItems({ allSkills: skills.filter(skill => skill.type.match(type))})
     }
@@ -48,12 +48,13 @@ function Skills() {
       <motion.div className='skills__container' variants={container} initial="hidden" animate="show" >
       <LayoutGroup>
         <AnimatePresence >
-          { allSkills?.sort((a,b) => a.id-b.id).map(item => (
+          {scrollValue && allSkills?.sort((a,b) => a.id-b.id).map(item => (
             <SkillsCard 
               name={item.name} 
               image={item.img} 
               key={item.id} 
               iD={item.id}
+              onPage={scrollValue}
               />
           )) }
         </AnimatePresence>
@@ -63,4 +64,4 @@ function Skills() {
   )
 }
 
-export default Skills
+export default React.memo(Skills)

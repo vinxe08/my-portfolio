@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 .Skills {
+  min-height: 100vh;
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column; 
   align-items: center;
   background-color: rgb(250, 250, 250);
-  scroll-snap-align: start;
   padding-top: 3rem;
 }
 

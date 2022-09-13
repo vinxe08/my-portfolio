@@ -6,7 +6,6 @@ import Layout from './pages/Layout';
 function App() {
   const [countDown, setCountDown] = useState(0)
   const [showPage, setShowPage] = useState(false)
-  const [scrollValue, setScrollValue] = useState(0)
 
   useEffect(() => {
     if(countDown !== 100){
@@ -15,11 +14,7 @@ function App() {
         setShowPage(true)
       },2800)
     }
-  },[])
-
-  const handleScroll = event => {
-    setScrollValue(event.currentTarget.scrollTop)
-  };
+  })
 
   return (
     <div className="App">
@@ -34,8 +29,8 @@ function App() {
         :null  
       }
       { showPage ?
-        <div className='app__container' onScroll={handleScroll}>
-          <Layout scrollValue={scrollValue} />
+        <div className='app__container'>
+          <Layout />
         </div> 
       : null
       }
