@@ -30,7 +30,7 @@ export const SliderData = [
         name:'MongoDB'
       }
     ],
-    url:'https://twitter-got-cloned.vercel.app/',
+    url:'https://twttr-got-cloned.vercel.app/',
   },
   { id:2,
     mainImg:spotify,
@@ -48,7 +48,7 @@ export const SliderData = [
         name:'Tailwind CSS'
       },
     ],
-    url:'https://spotify-clone-yt-rust.vercel.app/',
+    url:'https://sptfy-clone-yt-rust.vercel.app/',
   },
   { id: 3,
     mainImg:airbnb,
@@ -70,6 +70,6 @@ export const SliderData = [
         name:'ReactJS'
       }
     ],
-    url:'https://airbnb-yt-git-main-vinxe08.vercel.app/',
+    url:'https://clone3-yt-iota.vercel.app/',
   },
 ]
