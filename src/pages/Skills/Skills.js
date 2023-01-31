@@ -23,13 +23,13 @@ function Skills({ scrollValue }) {
   const setTypeSkills = (type) => {
     setTypes(type)
 
-    // Filtering Logic from Front-Back-Others-Frame --> All
+    // Filtering Logic: from Front-Back-Others-Frame --> All
     if(type === "All"){
       const list = allSkills
       list.push(...skills.filter(data => !allSkills.some(item => item.type === data.type)))
       setItems({ ...allSkills, allSkills: list })
     } 
-    // Filtering Logic from All --> Front-Back-Others-Frame 
+    // Filtering Logic: from All --> Front-Back-Others-Frame 
     else{ 
       setItems({ allSkills: skills.filter(skill => skill.type.match(type))})
     }

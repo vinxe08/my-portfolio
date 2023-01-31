@@ -72,4 +72,6 @@ export const SliderData = [
     ],
     url:'https://clone3-yt-iota.vercel.app/',
   },
+
+  // Deploy all Projects(Github) and add Here!!!
 ]

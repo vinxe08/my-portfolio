@@ -57,15 +57,16 @@
 }
 
 .navbar__container {
-  padding: 0 1rem;
+  z-index: 10;
   width: 100%;
-  height: 40px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: transparent;
   position: fixed;
 }
+
 
 .navbar__icon {
   display: flex;
@@ -73,7 +74,7 @@
   justify-content: space-between;
   width: 80px;
   text-decoration: none;
-  color: rgb(67, 138, 245);
+  color: white;
 }
 
 .navbar__icon h1 {
@@ -82,6 +83,22 @@
   font-weight: 900;
   margin-left: 10px;
 }
+
+.nav__logoAnimation {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+  /* flex-direction: column; */
+}
+
+.nav__reactlogo {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  /* top: 0; */
+}
+
 
 .navbar__data {
   display: flex;
@@ -111,22 +128,20 @@
 
 .nav__location {
   width: 40%;
-  color: rgb(100, 98, 98);
+  color: rgb(177, 175, 175);
   border: none;
   padding: 2.5px 23px;
-  font-size: 13.5px;
-  text-align: left;
+  font-size: 14px;
+  text-align: center;
   cursor: pointer;
   transition: 0.25s ease-in;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
-  border-bottom: 2.5px solid transparent;
   text-transform: uppercase;
 }
 
 .nav__location:hover {
-  color: rgb(160, 219, 253);
-  border-bottom: 3px solid rgb(31, 84, 199);
+  color: white;
 }
 
 .nav__location:active {
@@ -142,6 +157,18 @@
 
 .active {
   color: rgb(136, 194, 233);
+}
+
+.custom__nav {
+  color: white;
+  background-color: rgb(45, 167, 197);
+  /* padding: 12rem; */
+  border-radius: 10px;
+  margin-left: 50px;
+}
+
+.custom__nav:hover {
+  background-color: rgb(241, 60, 96);
 }
 
 @media only screen and (min-width: 800px) {
@@ -160,7 +187,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding-top: 10px;
+    /* padding-top: 10px; */
   }
 
   .navbar__icon {
@@ -177,12 +204,12 @@
 
   .active {
     color: rgb(31, 84, 199);
-    border-bottom: 3px solid rgb(31, 84, 199);
+    /* border-bottom: 3px solid rgb(31, 84, 199); */
   }
 
   .onTrack {
-    color: rgb(160, 219, 253);
-    border-bottom: 3px solid rgb(31, 84, 199);
+    color: white;
+    /* border-bottom: 3px solid rgb(31, 84, 199); */
   }
 }
 
@@ -190,13 +217,13 @@
   .nav__location {
     width: 40%;
     /* color: rgb(100, 98, 98); */
-    font-size: 16.5px;
+    
     text-transform: uppercase;
     padding: 2.5px 23px;
   }
 
   .onTrack {
-    color: rgb(160, 219, 253);
-    border-bottom: 3px solid rgb(31, 84, 199);
+    color: white;
+    /* border-bottom: 3px solid rgb(31, 84, 199); */
   }
 }

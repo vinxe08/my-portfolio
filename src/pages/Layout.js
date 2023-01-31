@@ -23,7 +23,7 @@ function Layout() {
       const titleScrolled = yPos > 200;
       const firstScrolled = yPos > 480;
       const secondScrolled = yPos > 1190;
-      const thirdScrolled = yPos > 1848;
+      const thirdScrolled = yPos > 1828;
       const fourthScrolled = yPos > 300 && yPos > 2000;
 
       setIconColor(titleScrolled)

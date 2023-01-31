@@ -15,8 +15,8 @@ function Contact() {
           <div className="contact__row">
             <Home className="contact__icon" />
             <div className="contact__info">
-              <h1>Bolinao, Pangasinan</h1>
-              <h2>#80 Ba-reg, Arnedo</h2>
+              <h1>Quezon City</h1>
+              <h2>Nagkaisang Nayon</h2>
             </div>
           </div>
           <div className="contact__row">

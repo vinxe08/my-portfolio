@@ -97,3 +97,42 @@ export const navbar = {
     transition: { staggerChildren: 0.05, staggerDirection: -1, delay: 1 }
   }
 }
+
+export const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2
+    }
+  }
+};
+
+export const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1
+  },
+};
+
+export const letterContainer2 = {
+  hidden: { 
+    opacity: 1, 
+    scale: 0,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 1
+    }
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    
+  }
+};
+
+
+
